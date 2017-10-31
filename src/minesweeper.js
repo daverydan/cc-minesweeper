@@ -1,7 +1,7 @@
 class Game {
   constructor(numberOfRows, numberOfColumns, numberOfBombs) {
     this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
-  }
+  } // constructor()
 
   playMove(rowIndex, columnIndex) {
     this._board.flipTile(rowIndex, columnIndex);
@@ -16,8 +16,8 @@ class Game {
       console.log('Current Board:');
       this._board.print();
     }
-  }
-}
+  } // playMove()
+} // class Game
 
 
 class Board {
@@ -26,7 +26,7 @@ class Board {
     this._numberOfTiles = numberOfRows * numberOfColumns;
     this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
     this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
-  }
+  } // constructor()
 
   get playerBoard() {
     return this._playerBoard;
@@ -34,7 +34,7 @@ class Board {
 
   get bombBoard() {
     return this._bombBoard;
-  } // playerBoard()
+  } // bombBoard()
 
   flipTile(rowIndex, columnIndex) {
     if (this._playerBoard[rowIndex][columnIndex] !== ' ') {
@@ -84,7 +84,7 @@ class Board {
     return this._numberOfTiles !== this._numberOfBombs;
   } // hasSafeTiles()
 
-  print() { // #19???
+  print() {
     console.log(this._playerBoard.map(row => row.join('|')).join('\n'));
   } // print()
 
